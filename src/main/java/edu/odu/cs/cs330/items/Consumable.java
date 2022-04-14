@@ -19,6 +19,7 @@ public class Consumable extends Item {
     public Consumable()
     {
         // Make the necessary call to super(...)
+        super("", true);
         
         this.effect = "";
         this.uses   = 0;
