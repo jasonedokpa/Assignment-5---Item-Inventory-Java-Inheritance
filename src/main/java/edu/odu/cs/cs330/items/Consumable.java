@@ -19,7 +19,7 @@ public class Consumable extends Item {
     public Consumable()
     {
         // Make the necessary call to super(...)
-
+        
         this.effect = "";
         this.uses   = 0;
     }
@@ -73,10 +73,11 @@ public class Consumable extends Item {
     @Override
     public void read(Scanner s)
     {
-        super.name = s.next();
-
+        super.name  = s.next();
+        
         // Read in the remaining values
-
+        this.effect = s.next();
+        this.uses   = Integer.parseInt(s.next());
     }
 
     /**
@@ -85,7 +86,12 @@ public class Consumable extends Item {
     @Override
     public Item clone()
     {
-        return null;
+        Consumable itemclone = new Consumable();
+        itemclone.name = this.name;
+        itemclone.effect   = this.effect;
+        itemclone.uses      = this.uses;
+
+        return itemclone;
     }
 
     /**
@@ -94,6 +100,11 @@ public class Consumable extends Item {
     @Override
     public String toString()
     {
-        return "This is a Placeholder";
+        StringBuilder bld = new StringBuilder();
+        bld.append(String.format("  Nme: %s\n", this.name));
+        bld.append(String.format("  Eft: %s\n", this.effect));
+        bld.append(String.format("  Use: %d\n", this.uses));
+
+        return bld.toString();
     }
 }

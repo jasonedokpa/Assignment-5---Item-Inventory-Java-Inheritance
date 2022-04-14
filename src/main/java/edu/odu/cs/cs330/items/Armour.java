@@ -25,6 +25,7 @@ public class Armour extends Item {
     {
         // Make the necessary call to super(...)
 
+        super("", false);
         this.durability   = 0;
         this.defense      = 0;
         this.material     = "";
@@ -40,6 +41,7 @@ public class Armour extends Item {
     {
         // Make the necessary call to super(...)
 
+        super(src.name, false);
         this.durability   = src.durability;
         this.defense      = src.defense;
         this.material     = src.material;
@@ -150,9 +152,15 @@ public class Armour extends Item {
     @Override
     public void read(Scanner s)
     {
-        super.name   = s.next();
-
+        super.name          = s.next();
+        
         // Read in the remaining values
+        this.material       = s.next();
+        this.durability     = Integer.parseInt(s.next());
+        this.defense        = Integer.parseInt(s.next());
+        this.modifier       = s.next();
+        this.modiferLevel   = Integer.parseInt(s.next());
+        this.element        = s.next();
     }
 
     /**
@@ -161,7 +169,16 @@ public class Armour extends Item {
     @Override
     public Item clone()
     {
-        return null;
+        Armour itemclone = new Armour();
+        itemclone.name = this.name;
+        itemclone.durability   = this.durability;
+        itemclone.defense      = this.defense;
+        itemclone.material     = this.material;
+        itemclone.modifier     = this.modifier;
+        itemclone.modiferLevel = this.modiferLevel;
+        itemclone.element      = this.element;
+
+        return itemclone;
     }
 
     /**
@@ -170,7 +187,15 @@ public class Armour extends Item {
     @Override
     public String toString()
     {
-        return "This Is A Placeholder";
+        StringBuilder bld = new StringBuilder();
+        bld.append(String.format("  Nme: %s\n", this.name));
+        bld.append(String.format("  Dur: %d\n", this.durability));
+        bld.append(String.format("  Def: %d\n", this.defense));
+        bld.append(String.format("  Mtl: %s\n", this.material));
+        bld.append(String.format("  Mdr: %s (Lvl %d)\n", this.modifier, this.modiferLevel));
+        bld.append(String.format("  Emt: %s\n", this.element));
+
+        return bld.toString();
     }
 }
 
