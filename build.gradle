@@ -97,7 +97,7 @@ checkstyle {
     ignoreFailures = true
     showViolations = false
 
-    configFile = "checkstyle.xml" as File
+    configFile = "config/checkstyle/checkstyle.xml" as File
 }
 
 tasks.withType(Checkstyle) {
