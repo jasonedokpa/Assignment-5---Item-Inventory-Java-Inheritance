@@ -19,11 +19,11 @@ public class ItemFactory {
         /**
          * Default Constructor - Used as sentinel
          */
-        public ItemPair()
-        {
-            type  = null;
-            model = null;
-        }
+        // public ItemPair()
+        // {
+        //     type  = null;
+        //     model = null;
+        // }
 
         /**
          * Non-Default Constructor
